@@ -1,6 +1,6 @@
 import TopNavbar from "../components/navbar/topNavbar";
 import { Button } from "@nextui-org/react";
-import { useTonConnect } from "../hooks/useTonConnect";
+// import { useTonConnect } from "../hooks/useTonConnect";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -56,18 +56,18 @@ const RegisterUser = () => {
     },
   ];
   const navigate = useNavigate();
-  const { connected, sender } = useTonConnect();
+  // const { connected, sender } = useTonConnect();
 
-  async function makeAnTransaction() {
-    try {
-      await sender.send({
-        to: "UQCHptP27Vq6Gl13oUSzgqssWj1OYUpdREd-N2jbF7xrkkr4",
-        amount: 2,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function makeAnTransaction() {
+  //   try {
+  //     await sender.send({
+  //       to: "UQCHptP27Vq6Gl13oUSzgqssWj1OYUpdREd-N2jbF7xrkkr4",
+  //       amount: 2,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",

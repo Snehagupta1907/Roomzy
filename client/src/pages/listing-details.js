@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import TickIcon from "../lib/icons/tick.svg";
 import { useLocation } from "react-router-dom";
-import { TonConnectButton } from "@tonconnect/ui-react";
-import { useTonConnectUI } from "@tonconnect/ui-react";
-
 import TV from "../lib/img/amenities/TV.png";
 import Fridge from "../lib/img/amenities/fridge.png";
 import Kitchen from "../lib/img/amenities/kitchen.png";
@@ -143,7 +140,7 @@ const Profile = () => {
                     Chat
                   </Button>
                 </div>
-                <TonConnectButton />
+               
               </div>
             </div>
           </div>
