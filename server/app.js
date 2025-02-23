@@ -25,7 +25,10 @@ app.post("/api/v1/generate-token", (req, res) => {
 //middleware routes
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+  origin: 'https://roomzy-axja.vercel.app', // Change to '*' to allow all origins (not recommended for production)
+  credentials: true, // if you need to allow cookies or authentication
+}));
 app.use(handleError);
 
 // routes
