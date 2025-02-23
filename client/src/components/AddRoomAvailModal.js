@@ -106,7 +106,7 @@ const AddRoomAvailModal = ({ setShowAddRoomModal }) => {
         return;
       }
       const response = await fetch(
-        "https://roomzy-876.vercel.app/api/v1/rooms/create",
+        "http://localhost:8000/api/v1/rooms/create",
         {
           method: "POST",
           headers: {

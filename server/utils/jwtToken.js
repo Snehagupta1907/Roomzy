@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
 const sendTokenResponse = (user, statusCode, res) => {
    //generating token
     const token = user.getSignedJwtToken();

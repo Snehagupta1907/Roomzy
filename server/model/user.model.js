@@ -1,8 +1,12 @@
+import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import validator from 'validator';
 import crypto from 'crypto';
+
+dotenv.config();
+
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -50,10 +54,10 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
 };
 
 userSchema.methods.getSignedJwtToken = function() {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
-  });
+  const expiresIn = parseInt(process.env.JWT_COOKIE_EXPIRES_IN, 10);
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, { expiresIn });
 };
+
 
 userSchema.methods.generatePasswordResetToken = function() {
   const resetToken = crypto.randomBytes(20).toString('hex');

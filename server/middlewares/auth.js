@@ -1,11 +1,15 @@
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import User from '../model/user.model.js';
 import { ErrorHandler } from '../utils/errorHandler.js';
 
+dotenv.config();
+
+
 export const auth = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    // console.log(token);
+    console.log(token);
 
     if (!token) {
       throw new ErrorHandler(401, 'Unauthorized.Login firsts');
@@ -14,7 +18,7 @@ export const auth = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     const user = await User.findById(decoded.id);
-    // console.log(user);
+    console.log(user);
 
     if (!user) {
       throw new ErrorHandler(401, 'Unauthorized');

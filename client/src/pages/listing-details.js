@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import TickIcon from "../lib/icons/tick.svg";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { TonConnectButton } from "@tonconnect/ui-react";
+import { useTonConnectUI } from "@tonconnect/ui-react";
+
 import TV from "../lib/img/amenities/TV.png";
 import Fridge from "../lib/img/amenities/fridge.png";
 import Kitchen from "../lib/img/amenities/kitchen.png";
@@ -85,7 +88,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          `https://roomzy-876.vercel.app/api/v1/rooms/${room_id}`,
+          `http://localhost:8000/api/v1/rooms/${room_id}`,
           {
             method: "GET",
             headers: {
@@ -137,10 +140,10 @@ const Profile = () => {
                     variant="bordered"
                     className="shadow-[0px_3px_0px_0px_#1a202c] w-32 py-3 uppercase"
                   >
-                    Chat
+                   <Link to={`https://t.me/${details?.user_id?.username}`}>Chat</Link>
                   </Button>
                 </div>
-               
+                <TonConnectButton />
               </div>
             </div>
           </div>
