@@ -10,25 +10,19 @@ import botRouter from "./routes/botRoutes.js";
 const app = express();
 
 
-
-app.post("/api/v1/generate-token", (req, res) => {
-  const { id, first_name, last_name, username } = req.body;
-
-  // Create the payload with user info
-  const payload = { id, first_name, last_name, username };
-
-  // Generate a JWT token
-  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
-  res.json({ token });
-});
-
 //middleware routes
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: 'https://roomzy-axja.vercel.app', // Change to '*' to allow all origins (not recommended for production)
-  credentials: true, // if you need to allow cookies or authentication
-}));
+const corsOptions = {
+  origin: ['https://roomzy-axja.vercel.app'],  // Add your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,  // Enable if you're using cookies/sessions
+  maxAge: 86400  // Cache preflight request results for 24 hours (in seconds)
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
 app.use(handleError);
 
 // routes
