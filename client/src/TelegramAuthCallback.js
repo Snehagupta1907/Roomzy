@@ -34,7 +34,7 @@ const TelegramAuthCallback = () => {
     if (data.hash && verifyTelegramHash(data, botToken)) {
       console.log("Hash verified successfully."); // Log success of hash verification
 
-      fetch("http://localhost:8000/api/v1/generate-token", {
+      fetch("https://roomzy-tau.vercel.app/api/v1/generate-token", {
         // Ensure this URL matches your backend endpoint
         method: "POST",
         headers: {

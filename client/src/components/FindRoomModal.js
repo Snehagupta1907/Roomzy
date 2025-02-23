@@ -48,7 +48,7 @@
 //   const addPreferences = async () => {
 //     let id = toast.loading("Updating preferences...");
 //     const response = await fetch(
-//       "http://localhost:8000/api/v1/user/preferences",
+//       "https://roomzy-tau.vercel.app/api/v1/user/preferences",
 //       {
 //         method: "PUT",
 //         headers: {
@@ -221,7 +221,7 @@ const FindRoomModal = ({ setShowFindRoomModal }) => {
     let id = toast.loading("Updating preferences...");
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/user/preferences",
+        "https://roomzy-tau.vercel.app/api/v1/user/preferences",
         {
           method: "PUT",
           headers: {

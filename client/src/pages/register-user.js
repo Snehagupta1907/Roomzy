@@ -113,7 +113,7 @@ const RegisterUser = () => {
       };
       console.log(transformedData);
       const response = await fetch(
-        "http://localhost:8000/api/v1/user/register",
+        "https://roomzy-tau.vercel.app/api/v1/user/register",
         {
           method: "POST",
           headers: {
